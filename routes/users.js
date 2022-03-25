@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db');
+var db = require('../DB/db');
 var helpers = require('../helpers');
 var errors = [];
 

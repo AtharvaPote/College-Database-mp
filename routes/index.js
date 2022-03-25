@@ -2,7 +2,7 @@ var express = require('express');
 const Logger = require('nodemon/lib/utils/log');
 var router = express.Router();
 var helpers = require('../helpers');
-var db = require('../db');
+var db = require('../DB/db');
 
 router.get('/',helpers.loginChecker, function (req, res, next) {
     res.render('home')
