@@ -33,7 +33,7 @@ router.post('/register', helpers.loginChecker, function (req, res, next) {
 });
 
 router.get('/login', helpers.loginChecker, function (req, res, next) {
-  res.render('s_login')
+  res.render('./student/s_login')
 });
 
 router.post('/login', function (req, res, next) {
