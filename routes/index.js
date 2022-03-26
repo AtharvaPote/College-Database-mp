@@ -4,7 +4,7 @@ var router = express.Router();
 var helpers = require('../helpers');
 var db = require('../DB/db');
 
-router.get('/',helpers.loginChecker, function (req, res, next) {
+router.get('/', function (req, res, next) {
     res.render('home')
 });
 

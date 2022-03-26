@@ -3,12 +3,12 @@ var router = express.Router();
 var db = require('../DB/db');
 var helpers = require('../helpers');
 var errors = [];
-
-router.get('/register', helpers.loginChecker, function (req, res, next) {
+//Register User
+router.get('/register', function (req, res, next) {
   res.render('register');
 });
 
-router.post('/register', helpers.loginChecker, function (req, res, next) {
+router.post('/register', function (req, res, next) {
   var sqlQuery = `INSERT INTO students(name,login,password) VALUES( ?, ?, MD5(?))`;
   var values = [req.body.fname,req.body.email, req.body.psw];
 
@@ -31,29 +31,53 @@ router.post('/register', helpers.loginChecker, function (req, res, next) {
   });
 
 });
-
-router.get('/login', helpers.loginChecker, function (req, res, next) {
-  res.render('./student/s_login')
+//Admin Login
+router.get('/login-admin', helpers.Adminlogin, function (req, res, next) {
+  res.render('./admin/login')
 });
 
-router.post('/login', function (req, res, next) {
+router.post('/login-admin', function (req, res, next) {
   var sqlQuery = `SELECT * FROM students WHERE login = ? AND password = MD5(?)`;
   var values = [req.body.email, req.body.psw];
-
+  
   db.query(sqlQuery, values, function (err, results, fields) {
     if (results.length == 1) {
       req.session.authorised = true;
       blogs=results
       console.log(results)
-      res.render('hello',{blogs});
+      res.render('./admin/home',{blogs});
       return;
     } else {
       errors.push('The username or password is incorrect.');
       next();
     }
   });
+  });  
+
+//Student Login
+router.get('/login-student', helpers.Studentlogin, function (req, res, next) {
+  res.render('./student/login')
+});
+
+router.post('/login-student', function (req, res, next) {
+var sqlQuery = `SELECT * FROM students WHERE login = ? AND password = MD5(?)`;
+var values = [req.body.email, req.body.psw];
+
+db.query(sqlQuery, values, function (err, results, fields) {
+  if (results.length == 1) {
+    req.session.authorised = true;
+    blogs=results
+    console.log(results)
+    res.render('./student/home',{blogs});
+    return;
+  } else {
+    errors.push('The username or password is incorrect.');
+    next();
+  }
+});
 });  
 
+//Logout
 router.get('/exit', function (req, res, next) {
 
   req.session.destroy(function (err) {

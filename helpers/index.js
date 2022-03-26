@@ -3,15 +3,26 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-function loginChecker(req, res, next) {
+function Adminlogin(req, res, next) {
   if (req.session.authorised) {
-    res.render('hello')
+    res.render('./admin/home')
     return;
   } else {
     next();
     return;
   }
 }
+
+function Studentlogin(req, res, next) {
+  if (req.session.authorised) {
+    res.render('./student/home')
+    return;
+  } else {
+    next();
+    return;
+  }
+}
+
 
 function checkForm(fields) {
 
@@ -28,6 +39,8 @@ function checkForm(fields) {
 
 module.exports.checkForm = checkForm;
 
-module.exports.loginChecker = loginChecker;
+module.exports.Adminlogin = Adminlogin;
+
+module.exports.Studentlogin = Studentlogin;
 
 module.exports.validateEmail = validateEmail;
