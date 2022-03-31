@@ -10,25 +10,16 @@ router.get('/admin-create', function (req, res) {
 });
 
 router.post('/register', function (req, res, next) {
-  var sqlQuery = `INSERT INTO students(name,login,password) VALUES( ?, ?, MD5(?))`;
-  var values = [req.body.fname,req.body.email, req.body.psw];
-
+  const addsem = req.body.Major+req.body.semester
+  const psw = req.body.name+'123'
+  var sqlQuery = `INSERT INTO students(name,Major,info,login,password) VALUES( ?, ?, ?, ?, MD5(?))`;
+  var values = [req.body.name,addsem,req.body.info,req.body.login,psw];
+  console.log(sqlQuery)
   db.query(sqlQuery, values, function (err, results, fields) {
 
     if (err) {
       console.log(err)
-      next();
-      return;
     }
-
-    if (results.affectedRows == 1) {
-      res.redirect('/login');
-      return;
-    } else {
-      errors.push(err.message);
-      next();
-    }
-
   });
 
 });

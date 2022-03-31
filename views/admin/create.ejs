@@ -10,7 +10,7 @@
     <h3 class="title-center">Register new Student</h3>
     
     <div class="form">
-      <form action="/get" method="POST">
+      <form action="/register" method="POST">
         <div class="title">Student Name : <input type="text" id="project_name" name="name" /></div>
         <br />
 
@@ -29,7 +29,7 @@
         <br>
         <div>
           <label for="category" class="category">Course</label>
-          <select name="course" id="category">
+          <select name="Major" id="category">
             <option value="CSE" >Computer Engineering</option>
             <option value="EXTC">Extc Engineering</option>
           </select>
@@ -50,7 +50,7 @@
         <div class="text-area">
           <label for="description" class="lable-field">info</label>
             <br>
-            <textarea
+            <textarea name="info"
             id="project_description"
             width: 323px; height: 38px;></textarea>
         </div>

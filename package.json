@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "User registration and user login application developed with Node.js, Express.js and MySQL",
   "main": "app.js",
-  "author": "Yusuf SEZER <yusufsezer@mail.com> (http://www.yusufsezer.com/)",
-  "license": "MIT",
+  "author": "Atharva Pote",
   "private": true,
   "keywords": [],
   "scripts": {
