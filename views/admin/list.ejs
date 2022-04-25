@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title><%=results[0].name%> | Admin Dashboard  </title>
+    <title>Admin Dashboard | CodingLab </title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -12,7 +12,7 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <!--<img src="images/danish.jpg" alt=""> -->
+      <img src="images/danish.jpg" alt="">
       <span class="logo_name"></span>
     </div>
       <ul class="nav-links">
@@ -23,15 +23,15 @@
           </a>
         </li>
         <li>
-          <a href="/list">
+          <a href="#">
             <i class='bx bx-box' ></i>
             <span class="links_name">Attendance</span>
           </a>
         </li>
         <li>
-          <a href="/admin-create">
+          <a href="#">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Register Student</span>
+            <span class="links_name"></span>
           </a>
         </li>
         <li>
@@ -97,119 +97,70 @@
       </div>
     </nav>
 
-    <div class="home-content">
-       <div class="overview-boxes"> 
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic"></div>
-            <div class="number"></div>
-            <div class="indicator">
-              
-            <span class="text"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae provident numquam qui voluptates optio at cumque mollitia nemo adipisci consequuntur recusandae nesciunt est praesentium maxime, consequatur odit fugiat laudantium nihil!</p></span>
-            </div>
-          </div>
-          
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic"></div>
-            <div class="number"></div>
-            <div class="indicator">
-              
-              <span class="text"></span>
-            </div>
-          </div>
-
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic"></div>
-            <div class="number"></div>
-            <div class="indicator">
-              
-              <span class="text"></span>
-            </div>
-          </div>
-          
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic"></div>
-            <div class="number"></div>
-            <div class="indicator">
-              
-              <span class="text"></span>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-
-      <div class="sales-boxes">
-        <div class="recent-sales box">
-          <div class="title"></div>
-          <div class="sales-details">
-            <ul class="details">
-              <li class="topic"></li>
-              <li><a href="#"></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium asperiores, harum inventore, repudiandae voluptas labore sed pariatur quis sunt praesentium culpa nesciunt vitae natus corporis maiores fugiat nobis et rerum?</li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-              <li><a href="#"></a></li>
-            </ul>
-            <!-- <ul class="details">
-            <li class="topic"></li>
-            <li><a href="#"></a>af</li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-             <li><a href="#"></a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic"></li>
-            <li><a href="#"></a>aaa</li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-             <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
-          <ul class="details">
-            <li class="topic"></li>
-            <li><a href="#"></a>aa</li>
-            <li><a href="#"></a>aa</li>
-            <li><a href="#"></a>aa</li>
-            <li><a href="#"></a>aa</li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-             <li><a href="#"></a></li>
-             <li><a href="#"></a></li>
-          </ul> -->
-          </div>
-          <div class="button">
-            <a href="#">hello</a>
-          </div>
-        </div>
-        <div class="top-sales box">
-          <div class="title">Notice</div>
-          <ul class="top-sales-details">
-            <p>Lorem ipsum</p>
-            <p>Lorem ipsum</p>
-            <br>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <form action="/get" method="POST">
+      <!-- <label for="title">Blog title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="snippet">Blog snippet:</label>
+      <input type="text" id="snippet" name="snippet" required>
+      <label for="body">Blog body:</label>
+      <textarea id="body" name="body" required></textarea>
+      <button>Submit</button>   -->
+      <label for="year">Semester</label>
+          <div>
+            <select name="Major" id="year">
+              <option value="CSE">CSE</option>
+              <option value="EXTC">EXTC</option>
+              <option value="EE">EE</option>
+              <option value="ALML">AL/ML</option>
+            </select>
+          </div>  
+      <label for="year">Semester</label>
+      <div>
+        <select name="Semester" id="year">
+          <option value="1">FE.Year ODD</option>
+          <option value="2">FE.Year Even</option>
+          <option value="3">SE.Year ODD</option>
+          <option value="4">SE.Year Even</option>
+          <option value="5">TE.Year ODD</option>
+          <option value="6">TE.Year Even</option>
+          <option value="7">BE.Year ODD</option>
+          <option value="8">BE.Year Even</option>
+        </select>
+        <button>Submit</button>
+      </div>         
+    </form>
+    <div id="wrapper">
+      <h1>Students</h1>
+      
+      <table id="keywords" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th><span>Login ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Major</span></th>
+            <th><span>Info</span></th>
+            <th><span>Edit</span></th>
+            <th><span>Marks</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog => { %>
+          <tr> 
+            <td class="lalign"><%= blog.login %></td>
+            <td><%= blog.name %></td>
+            <td><%= blog.Major %></td>
+            <td><%= blog.Info %></td>
+            <td><a href="/edit/<%=blog.user_id%>">Edit <%=blog.name%></a></td>
+            <td><a href="/marks/<%=blog.user_id%>">Edit Marks<%=blog.name%></a></td>
+          </tr>
+            <% }) %>
+          <% } else { %>
+            <p>There are no blogs to display...</p>
+          <% } %>
+        </tbody>
+      </table>
+     </div>
   </section>
 
   <script>
@@ -224,6 +175,96 @@
 }
  </script>
 <style>/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+  ::selection { background: #5f74a0; color: #fff; }
+  ::-moz-selection { background: #5f74a0; color: #fff; }
+  ::-webkit-selection { background: #5f74a0; color: #fff; }
+  
+  br { display: block; line-height: 1.6em; } 
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+  ol, ul { list-style: none; }
+  
+  input, textarea { 
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none; 
+  }
+  
+  blockquote, q { quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+  strong, b { font-weight: bold; } 
+  
+  table { border-collapse: collapse; border-spacing: 0; }
+  img { border: 0; max-width: 100%; }
+  
+  h1 { 
+    font-family: 'Amarante', Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 3.6em;
+    line-height: 1.7em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  
+  /** page structure **/
+  #wrapper {
+    display: block;
+    width: 850px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 10px 17px;
+    -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
+  }
+  
+  #keywords {
+    margin: 0 auto;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  
+  
+  #keywords thead {
+    cursor: pointer;
+    background: #c9dff0;
+  }
+  #keywords thead tr th { 
+    font-weight: bold;
+    padding: 12px 30px;
+    padding-left: 42px;
+  }
+  #keywords thead tr th span { 
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+  }
+  
+  #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+    background: #acc8dd;
+  }
+  
+  #keywords thead tr th.headerSortUp span {
+    background-image: url('https://i.imgur.com/SP99ZPJ.png');
+  }
+  #keywords thead tr th.headerSortDown span {
+    background-image: url('https://i.imgur.com/RkA9MBo.png');
+  }
+  
+  
+  #keywords tbody tr { 
+    color: #555;
+  }
+  #keywords tbody tr td {
+    text-align: center;
+    padding: 15px 10px;
+  }
+  #keywords tbody tr td.lalign {
+    text-align: left;}
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
   *{
     margin: 0;

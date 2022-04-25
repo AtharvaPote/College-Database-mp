@@ -1,107 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <title> <%= stud[0].name %> </title>
-  <link rel="stylesheet" href="/views/student/style.css">
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-<body>
-  <div class="sidebar">
-    <div class="logo-details">
-      <span class="logo_name"></span>
-    </div>
-      <ul class="nav-links">
-        <li>
-          <a href="/home/<%= stud[0].user_id %>" class="active">
-            <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="/profile/<%= stud[0].user_id %>">
-            <i class='bx bx-box' ></i>
-            <span class="links_name">Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="/blogs/<%= stud[0].user_id %>" class="active">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Blogs</span>
-          </a>
-        </li>
-        <li>
-          <a href="/marks/<%= stud[0].user_id %>">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Marks</span>
-          </a>
-        </li>
-        <li class="log_out active" >
-          <a href="/exit">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
-          </a>
-        </li>
-      </ul>
-  </div>
-<section class="home-section">
-  <nav>
-    <div class="sidebar-button">
-      <i class='bx bx-menu sidebarBtn'></i>
-      <span class="dashboard"><%= stud[0].name %> | Lokmanya Tilak College of Engineering </span>
-    </div>
-    <div class="profile-details">
-      <img src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" alt="">
-      <span class="admin_name"><%= stud[0].name %></span>
-      
-    </div>
-  </nav>
-
-  <div class="home-content">
-    
-
-    <div class="sales-boxes">
-      <div class="recent-sales box">
-        <div class="title"><h1><%= stud[0].name %></h1></div>
-        <div class="next"><h1>Course</h1>Computer Engineering</div>
-        <div class="next"><h1>Acad year:</h1> 2021
-        </div>
-        <div class="next"><h1>Acad Term</h1>ODD</div>
-      </div>
-      <div class="top-sales box">
-        <div class="title"><h1>News</h1></div>
-        <ul class="top-sales-details">
-          <% if (blogs.length > 0) { %>
-            <% blogs.forEach(blog => { %>
-                <h3 class="title"><%= blog.title %></h3>
-                <p class="snippet"><%= blog.content %></p>
-                <h3>BY-</h3>
-                <h3 class="snippet"><%= blog.author %></h3>
-            <% }) %>
-          <% } else { %>
-            <h3 class="title">No Blogs to display</h3>
-          <% } %>
-          <br>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function() {
-sidebar.classList.toggle("active");
-if(sidebar.classList.contains("active")){
-sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-}else
-sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-}
-</script>
-
-</body><style>/* Googlefont Poppins CDN Link */
+<style>/* Googlefont Poppins CDN Link */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -343,17 +240,17 @@ nav .profile-details i{
   margin: -15px 0 0 6px;
 }
 .home-content .box .cart.two{
-    color: #2BD47D;
-    background: #C0F2D8;
-  }
+   color: #2BD47D;
+   background: #C0F2D8;
+ }
 .home-content .box .cart.three{
-    color: #ffc233;
-    background: #ffe8b3;
-  }
+   color: #ffc233;
+   background: #ffe8b3;
+ }
 .home-content .box .cart.four{
-    color: #e05260;
-    background: #f7d4d7;
-  }
+   color: #e05260;
+   background: #f7d4d7;
+ }
 .home-content .total-order{
   font-size: 20px;
   font-weight: 500;
@@ -542,8 +439,4 @@ nav .profile-details i{
     width: calc(100% - 60px);
   }
 }
-
-*{
-font-family: 'Courier New', monospace;
-}</style>
-</html>
+</style>

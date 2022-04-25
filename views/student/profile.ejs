@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>  | Profile </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <span class="logo_name"></span>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="/home/<%= stud[0].user_id %>" class="active">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/profile/<%= stud[0].user_id %>">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="/blogs/<%= stud[0].user_id %>" class="active">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Blogs</span>
+          </a>
+        </li>
+        <li>
+          <a href="/marks/<%= stud[0].user_id %>">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Marks</span>
+          </a>
+        </li>
+        <li class="log_out active" >
+          <a href="/exit">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard"> | Lokmanya Tilak College of Engineering </span>
+      </div>
+      <div class="profile-details"><img src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" alt="">
+        <span class="admin_name"></span>
+        
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="create-blog content">
+        <form action="/blogs" method="POST">
+          <label for="title">Blog title:</label>
+          <input type="text" id="title" name="title" required>
+          <label for="snippet">Blog snippet:</label>
+          <input type="text" id="snippet" name="snippet" required>
+          <label for="body">Blog body:</label>
+          <textarea id="body" name="body" required></textarea>
+          <button>Submit</button>
+        </form>
+      </div>>
+    </div>
+  </section>
+
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
+ </script>
+ <%- include("./style.ejs") %>
+<style>
+
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  html { overflow-y: scroll; }
+  
+  
+  ::selection { background: #5f74a0; color: #fff; }
+  ::-moz-selection { background: #5f74a0; color: #fff; }
+  ::-webkit-selection { background: #5f74a0; color: #fff; }
+  
+  br { display: block; line-height: 1.6em; } 
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+  ol, ul { list-style: none; }
+  
+  input, textarea { 
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none; 
+  }
+  
+  blockquote, q { quotes: none; }
+  blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+  strong, b { font-weight: bold; } 
+  
+  table { border-collapse: collapse; border-spacing: 0; }
+  img { border: 0; max-width: 100%; }
+  
+  h1 { 
+    font-family: 'Amarante', Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 3.6em;
+    line-height: 1.7em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  
+  /** page structure **/
+  #wrapper {
+    display: block;
+    width: 850px;
+    background: #fff;
+    margin: 0 auto;
+    padding: 10px 17px;
+    -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
+  }
+  
+  #keywords {
+    margin: 0 auto;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  
+  
+  #keywords thead {
+    cursor: pointer;
+    background: #c9dff0;
+  }
+  #keywords thead tr th { 
+    font-weight: bold;
+    padding: 12px 30px;
+    padding-left: 42px;
+  }
+  #keywords thead tr th span { 
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+  }
+  
+  #keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+    background: #acc8dd;
+  }
+  
+  #keywords thead tr th.headerSortUp span {
+    background-image: url('https://i.imgur.com/SP99ZPJ.png');
+  }
+  #keywords thead tr th.headerSortDown span {
+    background-image: url('https://i.imgur.com/RkA9MBo.png');
+  }
+  
+  
+  #keywords tbody tr { 
+    color: #555;
+  }
+  #keywords tbody tr td {
+    text-align: center;
+    padding: 15px 10px;
+  }
+  #keywords tbody tr td.lalign {
+    text-align: left;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+  
+  p, h1, h2, h3, a, ul{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #222;
+  }
+
+  /* nav & footer styles */
+  nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+  }
+  nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  nav li{
+    list-style-type: none;
+    margin-left: 20px;
+  }
+  nav h1{
+    font-size: 3em;
+  }
+  nav p, nav a{
+    color: #777;
+    font-weight: 300;
+  }
+  footer{
+    color: #777;
+    text-align: center;
+    margin: 80px auto 20px;
+  }
+  h2{
+    margin-bottom: 40px;
+  }
+  h3{
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+  .content{
+    margin-left: 20px;
+  }
+
+  /* index styles */
+  .blogs a{
+    display: block;
+    margin: 40px 0;
+    padding-left: 30px;
+    border-left: 6px solid crimson;
+  }
+  .blogs a:hover h3{
+    color: crimson;
+  }
+
+  /* details styles */
+  .details{
+    position: relative;
+  }
+  .delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    padding: 8px;
+  }
+  .delete:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  }
+
+  /* create styles */
+  .create-blog form{
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .create-blog input,
+  .create-blog textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+  }
+  .create-blog label{
+    display: block;
+    margin-top: 24px;
+  }
+  textarea{
+    height: 120px;
+  }
+  .create-blog button{
+    margin-top: 20px;
+    background: crimson;
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+  }*{
+    font-family: 'Courier New', monospace;
+  }
+  </style>
+</body> 
+
+</html>
