@@ -74,10 +74,14 @@
         <ul class="top-sales-details">
           <% if (blogs.length > 0) { %>
             <% blogs.forEach(blog => { %>
-                <h3 class="title"><%= blog.title %></h3>
-                <p class="snippet"><%= blog.content %></p>
-                <h3>BY-</h3>
-                <h3 class="snippet"><%= blog.author %></h3>
+                <h3 class="title"><h1><%= blog.id %>.<%= blog.title %></h1></h3>
+                <p class="snippet"><%= blog.content %></p>  
+                <h4>Links</h4>
+                <a href="<%= blog.Links %>"><%= blog.Links %></a>
+                <br>
+                <br>                
+                <h3 class="snippet"><p> - <%= blog.author %></p></h3>
+                <br> 
             <% }) %>
           <% } else { %>
             <h3 class="title">No Blogs to display</h3>
