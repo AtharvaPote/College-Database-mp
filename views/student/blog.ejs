@@ -64,6 +64,8 @@
           <% blogs.forEach(blog => { %>
               <h3 class="title"><%= blog.id %>.<%= blog.title %></h3>
               <p class="snippet"><%= blog.content %></p>
+              <h4>Links</h4>
+              <a href="<%= blog.Links %>"><%= blog.Links %></a>
               <h6>Author</h6>
               <h3 class="snippet"><%= blog.author %></h3>
           <% }) %>

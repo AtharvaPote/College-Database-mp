@@ -9,7 +9,7 @@ router.get('/login-student', function (req, res, next) {
 
 router.post('/login-student', function (req, res, next) {
 var values = [req.body.email, req.body.psw];
-var sqlQuery = `SELECT * FROM students WHERE login = ? AND password = ?;select * from blogs limit 3;`;
+var sqlQuery = `SELECT * FROM students WHERE login = ? AND password = ?;SELECT * FROM blogs order by id desc limit 3;`;
 
 
 db.query(sqlQuery, values, function (err, results, fields) {
@@ -27,7 +27,7 @@ db.query(sqlQuery, values, function (err, results, fields) {
 
 router.get('/home/:id', function (req, res, next) {
   const id =req.params.id
-  var sqlQuery = `SELECT * FROM students WHERE user_id='${id}';select * from blogs limit 3;`;
+  var sqlQuery = `SELECT * FROM students WHERE user_id='${id}';SELECT * FROM blogs order by id desc limit 3;`;
 
   db.query(sqlQuery, function (err, results, fields) {  
     console.log(results)    
@@ -39,7 +39,7 @@ router.get('/home/:id', function (req, res, next) {
 
 router.get('/profile/:id', function (req, res, next) {
   const id =req.params.id
-  var sqlQuery = `SELECT * FROM extendedbio WHERE user_id='${id}'`;
+  var sqlQuery = `SELECT * FROM students WHERE user_id='${id}'`;
 
   db.query(sqlQuery, function (err, results, fields) {  
     const stud=results
@@ -59,7 +59,7 @@ router.get('/blogs/:id', function (req, res, next) {
   });
   });
 
-router.get('/marks/:id', function (req, res, next) {
+router.get('/smarks/:id', function (req, res, next) {
   const id =req.params.id
   var sqlQuery = `SELECT * FROM students WHERE user_id = '${id}'`;
   
