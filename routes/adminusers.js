@@ -16,20 +16,24 @@ router.post('/admin', function (req, res, next) {
     if (results.length == 1) {
       const id = results[0].admin_id;
       req.session.authorised = true;
-      res.render('./admin/home',{results,id});
-      return;
-    } else {
+      var blo=`select * from blogs order by id desc limit 3;`
+      db.query(blo, values, function (err, results, fields){
+        if (err ==null) {
+          const blogs =results
+        res.render('./admin/home',{blogs,id});}
+        else{}      }      )}
+     else {
       errors.push('The username or password is incorrect.');
       next();
-    }
-  });
-  });
+          }
+  });})
 
 router.get('/ahome/:id', (req, res) => {
     const id= req.params.id;
-    var sqlQ = `SELECT * FROM admin WHERE admin_id = ${id}`
+    var sqlQ = `select * from blogs order by id desc limit 3`
     db.query(sqlQ, function (err, results, fields){
-    res.render('./admin/home',{id,results});
+      const blogs =results
+    res.render('./admin/home',{blogs,id,results});
     });
 });
 
@@ -241,4 +245,26 @@ router.post('/:id/grade/:sid/:sub',function(req,res){
   })
   })  
 
+router.get('/:id/profile/:sid', function (req, res, next) {
+    const id =req.params.id
+    const sid =req.params.sid
+    var sqlQuery = `select personal,sc,jc,c from extendedbio where user_id='${sid}';`
+  
+    db.query(sqlQuery, function (err, results, fields) { 
+      if (err==null) {
+      const marks = (results)
+      console.log()
+      if (marks.length === 0) { 
+        console.log("Array is empty!") }
+      else{
+            console.log('reached')
+            console.log(marks)
+            res.render('./admin/sd',{marks,id})
+          }
+        }
+      else{
+        console.log(err)
+      }
+    });
+    });
 module.exports = router;

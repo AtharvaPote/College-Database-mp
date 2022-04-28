@@ -139,7 +139,7 @@
               <td class="lalign"><%= blog.login %></td>
               <td><%= blog.name %></td>
               <td><%= blog.Major %></td>
-              <td><a href="/edit/<%=blog.user_id%>">Edit <%=blog.name%></a></td>
+              <td><a href="/<%= id %>/profile/<%=blog.user_id%>">View <%=blog.name%></a></td>
             </tr>
               <% }) %>
             <% } else { %>

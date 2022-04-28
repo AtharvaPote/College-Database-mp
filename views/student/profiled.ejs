@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>  | Profile </title>
+    <title> qwe | Profile </title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -61,14 +61,16 @@
       <div class="create-blog content">
         <form action="/profile/<%= stud[0].user_id %>" method="POST">
           <label for="title">Profile:</label>
-          <input type="text" id="title" name="title" required>
+          <input type="text" id="title" value="<%= marks[0].personal%>" name="title" required>
+
           <label for="body">School Achivements:</label>
-          <textarea id="body" name="body" required></textarea>
+          <textarea id="body" name="body"  readonly><%= marks[0].sc%></textarea>
+
           <label for="body">Junior College Achivements:</label>
-          <textarea id="body" name="body" required></textarea>
+          <textarea id="body" name="body"  readonly><%= marks[0].jc%></textarea>
+
           <label for="body">College Achivements:</label>
-          <textarea id="body" name="body" required></textarea>
-          <button>Submit</button>
+          <textarea id="body" name="body"  readonly><%= marks[0].c%></textarea>
         </form>
       </div>>
     </div>

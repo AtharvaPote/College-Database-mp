@@ -18,7 +18,6 @@ db.query(sqlQuery, values, function (err, results, fields) {
     req.session.storage=results
     const stud=results[0]
     const blogs=results[1]
-    console.log(results)
     res.render('./student/home',{stud,blogs});
     return;
   } else {  console.log(err,'error')}
@@ -39,24 +38,31 @@ router.get('/home/:id', function (req, res, next) {
 
 router.get('/profile/:id', function (req, res, next) {
   const id =req.params.id
-  var sqlQuery = `SELECT * FROM students WHERE user_id='${id}'`;
+  var sqlQuery = `SELECT * FROM students WHERE user_id='${id}';select personal,sc,jc,c from extendedbio where user_id='${id}'  ;`
+
+  db.query(sqlQuery, function (err, results, fields) {  
+    const stud=results[0]
+    var marks = Object.values(JSON.parse(JSON.stringify(results[1]))) 
+    console.log(marks)
+    if (marks.length === 0) { console.log("Array is empty!") 
+        res.render('./student/profile',{stud});}
+        else{
+          res.render('./student/profiled',{stud,marks})
+        }
+  });
+  });
+router.post('/profile/:id',function(req,res,next){
+  const id =req.params.id
+  const input=req.body
+  console.log(id)
+  var sqlQuery = `INSERT INTO extendedbio(user_id,personal,sc, jc,c) VALUES ('${id}','${input.title}','${input.body[0]}', '${input.body[0]}', '${input.body[2]}');`;
 
   db.query(sqlQuery, function (err, results, fields) {  
     const stud=results
     res.render('./student/profile',{stud});
   });
-  });
-
-  router.get('/details/:id', function (req, res, next) {
-    const id =req.params.id
-    var sqlQuery = `SELECT * FROM students WHERE user_id='${id}';select * from extendedbio where user_id='${id}'`;
-  
-    db.query(sqlQuery, function (err, results, fields) {  
-      const stud =results
-      console.log(results,'resuflts')
-      res.render('./student/student',{stud,id});
-    });
-    });
+  }
+);
 
 router.get('/blogs/:id', function (req, res, next) {
     const id =req.params.id
