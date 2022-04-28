@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> -name- </title>
+    <title><%= stud[0][0].name %> </title>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -13,25 +13,25 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/home/<%= stud[0].user_id %>" class="active">
+          <a href="/home/<%= stud[0][0].user_id %>" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/profile/<%= stud[0].user_id %>">
+          <a href="/profile/<%= stud[0][0].user_id %>">
             <i class='bx bx-box' ></i>
             <span class="links_name">Profile</span>
           </a>
         </li>
         <li>
-          <a href="/blogs/<%= stud[0].user_id %>" class="active">
+          <a href="/blogs/<%= stud[0][0].user_id %>" class="active">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Blogs</span>
           </a>
         </li>
         <li>
-          <a href="/marks/<%= stud[0].user_id %>">
+          <a href="/marks/<%= stud[0][0].user_id %>">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Marks</span>
           </a>
@@ -48,58 +48,41 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard"><%= stud[0].name %> | Lokmanya Tilak College of Engineering </span>
+        <span class="dashboard"><%= stud[0][0].name %> | Lokmanya Tilak College of Engineering </span>
       </div>
       <div class="profile-details">
         <img src="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" alt="">
-        <span class="admin_name"><%= stud[0].name %></span>
+        <span class="admin_name"><%= stud[0][0].name %></span>
         
       </div>
     </nav>
 
     <div class="home-content">
       <div id="wrapper">
-        <h1>Sortable Table of Search Queries</h1>
+        <h1><%= stud[0][0].name %> Semester Marks</h1>
         
         <table id="keywords" cellspacing="0" cellpadding="0">
           <thead>
             <tr>
-              <th><span>Keywords </span></th>
-              <th><span>Impressions</span></th>
-              <th><span>Idk</span></th>
+              <th><span>Subjects </span></th>
+              <th><span>UT 1 </span></th>
+              <th><span>UT 2</span></th>
+              <th><span>SEM</span></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="lalign">silly tshirts</td>
-              <td>6,000</td>
-              <td>110</td>
+            <% if (blogs.length > 0) { %>
+              <% blogs.forEach(blog => { %>
+            <tr> 
+              <td class="lalign"><%= blog.sub_id %></td>
+              <td><%= blog.ut1 %></td>
+              <td><%= blog.ut2 %></td>
+              <td><%= blog.sem %></td>
             </tr>
-            <tr>
-              <td class="lalign">desktop workspace photos</td>
-              <td>2,200</td>
-              <td>500</td>
-            </tr>
-            <tr>
-              <td class="lalign">arrested development quotes</td>
-              <td>13,500</td>
-              <td>900</td>
-            </tr>
-            <tr>
-              <td class="lalign">popular web series</td>
-              <td>8,700</td>
-              <td>350</td>
-            </tr>
-            <tr>
-              <td class="lalign">2013 webapps</td>
-              <td>9,900</td>
-              <td>460</td>
-            </tr>
-            <tr>
-              <td class="lalign">ring bananaphone</td>
-              <td>10,500</td>
-              <td>748</td>
-            </tr>
+              <% }) %>
+            <% } else { %>
+              <p>There are no blogs to display...</p>
+            <% } %>
           </tbody>
         </table>
        </div> 

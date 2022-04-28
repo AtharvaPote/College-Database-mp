@@ -5,10 +5,9 @@ function validateEmail(email) {
 
 function Adminlogin(req, res, next) {
   if (req.session.authorised) {
-    res.redirect('/admin/home')
     return;
   } else {
-    next();
+    next()
     return;
   }
 }

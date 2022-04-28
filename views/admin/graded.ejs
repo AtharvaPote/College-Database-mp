@@ -87,9 +87,9 @@
     <div class="home-content">
       <div class="create-blog content">
         <form action="#" method="post">
-            UT1 : <input type="text" id="snippet" name="ut1"/>
-            UT2 : <input type="text" id="snippet" name="ut2" />
-            Semester <input type="text" id="snippet" name="sem"/>
+            UT1 : <input type="text" id="snippet" name="ut1" value="<%= marks[0].ut1%>" readonly/>
+            UT2 : <input type="text" id="snippet" name="ut2" value="<%= marks[0].ut2%>" readonly/>
+            Semester <input type="text" id="snippet" name="sem" value="<%= marks[0].sem%>" readonly />
                   
           <button>Submit</button>
         </form>

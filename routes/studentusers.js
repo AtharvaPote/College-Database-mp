@@ -47,6 +47,17 @@ router.get('/profile/:id', function (req, res, next) {
   });
   });
 
+  router.get('/details/:id', function (req, res, next) {
+    const id =req.params.id
+    var sqlQuery = `SELECT * FROM students WHERE user_id='${id}';select * from extendedbio where user_id='${id}'`;
+  
+    db.query(sqlQuery, function (err, results, fields) {  
+      const stud =results
+      console.log(results,'resuflts')
+      res.render('./student/student',{stud,id});
+    });
+    });
+
 router.get('/blogs/:id', function (req, res, next) {
     const id =req.params.id
     var sqlQuery = `SELECT * FROM blogs order by id desc; select * from students where user_id='${id}'`;
@@ -59,15 +70,17 @@ router.get('/blogs/:id', function (req, res, next) {
   });
   });
 
-router.get('/smarks/:id', function (req, res, next) {
+router.get('/marks/:id', function (req, res, next) {
   const id =req.params.id
-  var sqlQuery = `SELECT * FROM students WHERE user_id = '${id}'`;
+  var sqlQuery = `SELECT * FROM students WHERE user_id = '${id}';select * from marks where user_id='${id}';`
   
-  db.query(sqlQuery, function (err, results, fields) {
-    const stud=results
-    res.render('./student/marks',{stud});
+  db.query(sqlQuery, function (err, marks, fields) {
+    const stud = Object.values(JSON.parse(JSON.stringify(marks)));
+    const blogs = Object.values(JSON.parse(JSON.stringify(marks[1])));
+    console.log(blogs)
+    res.render('./student/marks',{stud,blogs});
   });
-  });
+});
 
 //Logout
 router.get('/exit', function (req, res, next) {

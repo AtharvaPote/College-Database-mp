@@ -132,7 +132,7 @@ db.query(sqlc, function (err, author, fields) {
   if (err==null) {
     const auth= author[0].name
   
-    var sqlQuery = `INSERT INTO blogs(id,title,content,Links,author,log) VALUES (NULL, '${input.title}', '${input.body}', '${input.snippet}', '${auth}', NULL); select * from blogs;`;
+    var sqlQuery = `INSERT INTO blogs(id,title,content,Links,author,log) VALUES (NULL, '${input.title}', '${input.body}', '${input.snippet}', '${auth}', NULL); select * from blogs order by id desc;`;
     db.query(sqlQuery, function (err, results, fields) {
       if (err==null) {
         const blogs=results[1]
@@ -161,7 +161,7 @@ router.get('/aablogs/:id', function (req, res, next) {
 });
 });
 
-//Marks
+//list student to Mark
 router.get('/amarks/:id', function (req, res, next) { 
   const id= req.params.id;
   var sqlQuery = `SELECT * from students`;
@@ -202,8 +202,25 @@ router.get('/:id/grade/:sid/:sub',function(req,res){
     const sub=req.params.sub
     const sid=req.params.sid
     const id=req.params.id
-    res.render('./admin/grade',{sid,sub,id})
+    var getexisting = `select * from marks where user_id like '${sid}' and sub_id like '${sub}'`;
+    db.query(getexisting, function (err, results, fields) {
+      if(err==null){
+        
+        var marks = Object.values(JSON.parse(JSON.stringify(results)))
+        console.log(marks)
+        if (marks.length === 0) { console.log("Array is empty!") 
+          res.render('./admin/grade',{id,sid,sub})}
+        else{
+          res.render('./admin/graded',{sid,sub,id,marks})
+        }
+        
+      }
+      else{
+        console.log(err)
+      }
   })
+}
+);
 
 router.post('/:id/grade/:sid/:sub',function(req,res){
     const id=req.params.id
