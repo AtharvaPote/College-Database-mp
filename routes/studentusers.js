@@ -49,7 +49,7 @@ router.get('/profile/:id', function (req, res, next) {
 
 router.get('/blogs/:id', function (req, res, next) {
     const id =req.params.id
-    var sqlQuery = `SELECT * FROM blogs;select * from students where user_id='${id}'`;
+    var sqlQuery = `SELECT * FROM blogs order by id desc; select * from students where user_id='${id}'`;
   
     db.query(sqlQuery, function (err, results, fields) {
     const stud=results[1]

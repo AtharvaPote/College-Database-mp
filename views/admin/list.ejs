@@ -12,7 +12,6 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <!--<img src="images/danish.jpg" alt=""> -->
       <span class="logo_name"></span>
     </div>
       <ul class="nav-links">
@@ -130,9 +129,7 @@
               <th><span>Login ID</span></th>
               <th><span>Name</span></th>
               <th><span>Major</span></th>
-              <th><span>Info</span></th>
-              <th><span>Edit</span></th>
-              <th><span>Marks</span></th>
+              <th><span>View</span></th>
             </tr>
           </thead>
           <tbody>
@@ -142,13 +139,11 @@
               <td class="lalign"><%= blog.login %></td>
               <td><%= blog.name %></td>
               <td><%= blog.Major %></td>
-              <td><%= blog.Info %></td>
               <td><a href="/edit/<%=blog.user_id%>">Edit <%=blog.name%></a></td>
-              <td><a href="/marks/<%=blog.user_id%>">Edit Marks<%=blog.name%></a></td>
             </tr>
               <% }) %>
             <% } else { %>
-              <p>There are no blogs to display...</p>
+              <p>There are no Students to display...</p>
             <% } %>
           </tbody>
         </table>

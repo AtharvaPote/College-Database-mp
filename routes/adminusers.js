@@ -80,23 +80,42 @@ router.get('/alist/:id', (req, res) => {
 
 //specific query student
 router.post('/specific/:id', function (req, res, next) {
-  console.log(req.body)  
-  const id= req.params.id;
-  const selection = req.body.Major+req.body.Semester
-    var sqlQuery = `SELECT * from students WHERE MAJOR like '${selection}'`;
-    db.query(sqlQuery, function (err, results, fields) {
-      if (err==null) {
-        const blogs=results
-        res.render('./admin/list',{blogs,id});
-      }
-      else{
-        console.log(err)
-        res.redirect('/list/'+id)
-      }
-  
-    });
-  
+console.log(req.body)  
+const id= req.params.id;
+const selection = req.body.Major+req.body.Semester
+var sqlQuery = `SELECT * from students WHERE MAJOR like '${selection}'`;
+db.query(sqlQuery, function (err, results, fields) {
+  if (err==null) {
+    const blogs=results
+    res.render('./admin/list',{blogs,id});
+  }
+  else{
+    console.log(err)
+    res.redirect('/list/'+id)
+  }
+
+});
+
+});
+//specific query student MARKS
+router.post('/Mspecific/:id', function (req, res, next) {
+console.log(req.body)  
+const id= req.params.id;
+const selection = req.body.Major+req.body.Semester
+  var sqlQuery = `SELECT * from students WHERE MAJOR like '${selection}'`;
+  db.query(sqlQuery, function (err, results, fields) {
+    if (err==null) {
+      const blogs=results
+      res.render('./admin/marks',{blogs,id});
+    }
+    else{
+      console.log(err)
+      res.redirect('/list/'+id)
+    }
+
   });
+
+});
 
 //create blogs
 router.get('/ablog/:id', (req, res) => {

@@ -12,7 +12,6 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <!--<img src="images/danish.jpg" alt=""> -->
       <span class="logo_name"></span>
     </div>
       <ul class="nav-links">
@@ -82,8 +81,7 @@
         <span class="dashboard">Lokmanya Tilak College of Engineering</span>
       </div>
       <div class="profile-details">
-        <img src="images/danish.jpg" alt="PP">
-        <span class="admin_name">Danish Maniyar</span>
+        <span class="admin_name"></span>
         
       </div>
     </nav>
@@ -92,14 +90,7 @@
       
       <div id="wrapper">
         <h1>Students</h1>
-        <form action="/specific/<%= id %>" method="POST">
-          <!-- <label for="title">Blog title:</label>
-          <input type="text" id="title" name="title" required>
-          <label for="snippet">Blog snippet:</label>
-          <input type="text" id="snippet" name="snippet" required>
-          <label for="body">Blog body:</label>
-          <textarea id="body" name="body" required></textarea>
-          <button>Submit</button>   -->
+        <form action="/Mspecific/<%= id %>" method="POST">
           <label for="year">Semester</label>
               <div>
                 <select name="Major" id="year">
@@ -130,8 +121,6 @@
               <th><span>Login ID</span></th>
               <th><span>Name</span></th>
               <th><span>Major</span></th>
-              <th><span>Info</span></th>
-              <th><span>Edit</span></th>
               <th><span>Marks</span></th>
             </tr>
           </thead>
