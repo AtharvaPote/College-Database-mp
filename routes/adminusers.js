@@ -253,7 +253,7 @@ router.get('/:id/profile/:sid', function (req, res, next) {
     db.query(sqlQuery, function (err, results, fields) { 
       if (err==null) {
       const marks = (results)
-      console.log()
+      console.log(marks)
       if (marks.length === 0) { 
         console.log("Array is empty!") }
       else{

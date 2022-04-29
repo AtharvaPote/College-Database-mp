@@ -57,10 +57,12 @@ router.post('/profile/:id',function(req,res,next){
   console.log(id)
   var sqlQuery = `INSERT INTO extendedbio(user_id,personal,sc, jc,c) VALUES ('${id}','${input.title}','${input.body[0]}', '${input.body[0]}', '${input.body[2]}');`;
 
-  db.query(sqlQuery, function (err, results, fields) {  
-    const stud=results
-    res.render('./student/profile',{stud});
-  });
+  db.query(sqlQuery, function (err, results, fields) { 
+    res.render('./student/profile',{id});
+    if(err==null){
+      res.render('./student/profiled',{id});
+  }
+else{console.log(err)}});
   }
 );
 
